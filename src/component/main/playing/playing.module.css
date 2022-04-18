@@ -1,0 +1,85 @@
+.playing {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 48px;
+}
+.frame {
+    background-color: #fff;
+    padding: 48px;
+    border-radius: 10px;
+
+    justify-content: center;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.02);
+}
+.cd div {
+    width: 180px;
+    height: 180px;
+    
+    margin: 32px 0px;
+    
+    border-radius: 100%;
+}
+.cd {
+    justify-content: center;
+    
+}
+.boxMusic {
+    display: flex;
+    justify-content: center;
+
+    background-color: #fff;
+    
+    box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.035);
+    border-radius: 20px;
+    
+}
+.navControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 32px;
+}
+.playingButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+
+    background-color: #fff;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 100%;
+}
+.info p,
+.info h5 {
+    text-align: center;
+}
+.info p {
+    color: #999;
+}
+.control input {
+    height: 2px;
+    padding: 0;
+}
+.control {
+    margin: 12px 0px 24px 0px;
+}
+.cd div {
+    background-position: center;
+}
+.imageCD {
+    animation: aniCD 20s linear infinite;
+    background-image: url(./image/cd.png);
+    background-size: 200%;
+
+}
+@keyframes aniCD {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

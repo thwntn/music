@@ -1,0 +1,39 @@
+.slider {
+    margin-top: 48px;
+}
+.img {
+    width: 256px;
+    height: 256px;
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 20px;
+}
+.item p {
+    padding-left: 22px;
+    
+    color: #888;
+}
+.item h5 {
+    width: 100%;
+
+    margin-top: 24px;
+    padding-left: 20px;
+
+    text-align: left;
+}
+.item {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-right: 48px;
+}
+.frameSlider {
+    display: flex;
+    
+    margin-top: 24px;
+
+    overflow: auto;
+}
