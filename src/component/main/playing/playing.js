@@ -1,16 +1,22 @@
-import { Row, Col }  from 'react-bootstrap'
+import { Row, Col, Button }  from 'react-bootstrap'
 import { IconContext } from 'react-icons/lib'
 import { useEffect, useRef, useState } from 'react'
-import { FaUndo, FaArrowRight, FaArrowLeft, FaTasks, FaPlay, FaPause } from 'react-icons/fa'
+import { FaCompressAlt, FaWindowMinimize, FaExpandAlt, FaRegWindowClose, FaUndo, FaArrowRight, FaArrowLeft, FaTasks, FaPlay, FaPause } from 'react-icons/fa'
 
 import style from './playing.module.css'
 import Control from './control'
 
 function Playing({ props }) {
+
+    const [position, setPosition] = useState()
+    const play = useRef()
     const audio = useRef()
     const [status, setStatus] = useState(true)
-    return ( 
-        <Row className = {style.playing}>
+    const [icon, setIcon] = useState(<FaCompressAlt></FaCompressAlt>)
+    const [state, setState] = useState(false)
+
+    return (
+        <Row ref = {play} className = {style.playing}>
             <audio
                 ref = {audio}
                 src = {`${props.playing.item.musicFile}`}
@@ -21,6 +27,19 @@ function Playing({ props }) {
             <h5>Now Playing</h5>
             <p>49 Song</p>
             <Col xs={11} className={style.frame}>
+            <button className={style.close}
+                onClick={() => {
+                    if (state == false) {
+                        play.current.style.transform = 'translateY(0%)'
+                        setIcon(<FaCompressAlt></FaCompressAlt>)
+                        setState(true)
+                    } else {
+                        play.current.style.transform = 'translateY(94%)'
+                        setIcon(<FaExpandAlt></FaExpandAlt>)
+                        setState(false)
+                    } 
+                }}
+                >{icon}</button>
                 <Row className={style.boxMusic}>
                     <Row className={style.cd}>
                         <div className = {style.imageCD} style={ props.playing.item.imageName != null ?  {backgroundImage: `url(${props.playing.item.imageName})` } : null}></div>
@@ -32,8 +51,9 @@ function Playing({ props }) {
                     <Control media = {audio}></Control>
                 </Row>
                 <Row className={style.navControl}>
-                    <Col xs={2}><FaTasks></FaTasks></Col>
+                    <Col className={style.btn} xs={2}><FaTasks></FaTasks></Col>
                     <Col
+                    className={style.btn}
                         xs={2}
                         onClick={() => {
                             if(props.playing.index > 0) {
@@ -47,6 +67,7 @@ function Playing({ props }) {
                         }}
                     ><FaArrowLeft></FaArrowLeft></Col>
                     <Col
+                    className={style.btn}
                         xs={2}
                         className={style.playingButton}
                         onClick={()=> {
@@ -60,6 +81,7 @@ function Playing({ props }) {
                         }}
                     >{status ? <FaPause></FaPause> : <FaPlay></FaPlay>}</Col>
                     <Col
+                    className={style.btn}
                         xs={2}
                         onClick={() => {
                             if(props.playing.index != props.playing.array.length -1) {
@@ -72,7 +94,9 @@ function Playing({ props }) {
                             }
                         }}
                     ><FaArrowRight></FaArrowRight></Col>
-                    <Col xs={2}>
+                    <Col xs={2}
+                    className={style.btn}>
+                        
                         <IconContext.Provider value={{color: 'red'}}><FaUndo></FaUndo></IconContext.Provider>
                     </Col>
                 </Row>

@@ -3,6 +3,7 @@
     justify-content: center;
     
     margin-top: 48px;
+    animation: aniPlaying 0.3s ease;
 }
 .frame {
     background-color: #fff;
@@ -81,5 +82,50 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+.playing .close {
+    background: none;
+    border: none;
+    display: none;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 1200px) {
+    .playing {
+        position: fixed;
+        bottom: 2%;
+        right: 2%;
+        transform: translateY(94%);
+    }
+    .playing p,
+    .playing h5 {
+        display: none;
+    }
+    .playing .button {
+        display: flex;
+    }
+    .playing .close {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        display: block;
+        margin-bottom: 12px;
+        width: 12px;
+        padding: 0;
+    }
+    .frame {
+        position: relative;
+    }
+}
+@keyframes aniPlaying {
+    from {
+        opacity: 0;
+        transform: translateY(10%) scale(95%);
+    } to {
+        opacity: 1;
+        transform: translateY(0) scale(100%);
     }
 }

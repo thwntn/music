@@ -7,7 +7,9 @@
   width: 0;
 }
 * {
+  --bs-gutter-x: none !important;
   font-family: basic;
+  transition: all 0.3s;
 }
 .App {
   text-align: center;
