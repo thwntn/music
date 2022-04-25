@@ -4,6 +4,7 @@ import Playing from '../playing/playing';
 import { useEffect, useState } from 'react';
 
 function Popular() {
+
     const [loop, setLoop] = useState(false)
     const [listPopular, setListPopular] = useState([])
     const [playing, setPlaying] = useState({
